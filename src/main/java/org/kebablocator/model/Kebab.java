@@ -1,9 +1,9 @@
 package org.kebablocator.model;
 
 
-import com.sun.istack.internal.NotNull;
 
 import javax.persistence.*;
+import javax.validation.constraints.NotNull;
 
 /**
  * Created by fchoudhry on 04/10/16.
