@@ -41,6 +41,21 @@ public class KebabController {
         return kebabDao.findAll();
     }
 
+    @RequestMapping(value = "/addKebab"
+            , method= RequestMethod.POST)
+    public Kebab addKebabs(@RequestBody Kebab kebab) throws Exception {
+          return kebabDao.save(kebab);
+    }
+
+    @RequestMapping(value = "/addKebabs"
+            , method= RequestMethod.POST)
+    public void addKebabs(@RequestBody List<Kebab> kebabs) throws Exception {
+        for(Kebab kebab : kebabs){
+            kebabDao.save(kebab);
+        }
+    }
+
+
     @Autowired
     private KebabDao kebabDao;
 }
