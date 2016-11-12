@@ -4,6 +4,7 @@ package org.kebablocator.controller;
 import org.kebablocator.model.Kebab;
 import org.kebablocator.model.KebabDao;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
@@ -43,12 +44,14 @@ public class KebabController {
 
     @RequestMapping(value = "/addKebab"
             , method= RequestMethod.POST)
+    @ResponseStatus(value = HttpStatus.CREATED)
     public Kebab addKebabs(@RequestBody Kebab kebab) throws Exception {
           return kebabDao.save(kebab);
     }
 
     @RequestMapping(value = "/addKebabs"
             , method= RequestMethod.POST)
+    @ResponseStatus(value = HttpStatus.CREATED)
     public void addKebabs(@RequestBody List<Kebab> kebabs) throws Exception {
         for(Kebab kebab : kebabs){
             kebabDao.save(kebab);
