@@ -12,6 +12,7 @@ import java.util.List;
 @Repository
 public interface KebabDao extends CrudRepository<Kebab, Integer> {
 
+
     Kebab findById(int id);
 
     Kebab findByNom(String nom);
