@@ -31,6 +31,9 @@ public class Kebab {
     private String adresse;
 
     @NotNull
+    private String cp;
+
+    @NotNull
     private String ville;
 
     public Kebab() {
@@ -40,10 +43,11 @@ public class Kebab {
         this.nom = nom;
     }
 
-    public Kebab(Double latitude, Double longitude, String nom, String adresse, String ville) {
+    public Kebab(Double latitude, Double longitude, String nom, String adresse, String cp, String ville) {
         this.latitude = latitude;
         this.longitude = longitude;
         this.nom = nom;
+        this.cp = cp;
         this.adresse = adresse;
         this.ville = ville;
     }
@@ -91,4 +95,12 @@ public class Kebab {
     public String getVille() { return ville; }
 
     public void setVille(String ville) { this.ville = ville; }
+
+    public String getCp() {
+        return cp;
+    }
+
+    public void setCp(String cp) {
+        this.cp = cp;
+    }
 }
