@@ -33,7 +33,7 @@ import static org.mockito.Mockito.when;
 @ActiveProfiles("integration")
 @RunWith(SpringJUnit4ClassRunner.class)
 @ContextConfiguration(classes = KebabLocatorBackApplication.class, loader = SpringBootContextLoader.class)
-public class KebabControllerTest {
+public class KebabControllerTestAdd {
 
     @Autowired
     private KebabController kebabController;
@@ -42,12 +42,16 @@ public class KebabControllerTest {
 
     @Autowired
     private KebabDao kebabDao;
-    private static final int id  = 310;
+    private static final int id  = 500;
 
 
 
-    @Before
-    public void setInit(){
+
+
+
+
+    @Test
+    public void should_return_add_kebab(){
         kebab = new Kebab(48.862364, 2.349856, "Nabab Kebab", "72 rue rambuteau", "75001", "Paris");
         kebab.setId(id);
         try {
@@ -56,50 +60,6 @@ public class KebabControllerTest {
             nb = nb +1;
             kebabController.addKebabs(kebab);
             assertThat(kebabController.getAllKebab(), Matchers.hasSize((int) nb));
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-    }
-
-
-
-
-    @Test
-    public void should_return_kebab(){
-        try {
-            Kebab keb = kebabController.getKebabById(1);
-            assertTrue(keb instanceof  Kebab);
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-    }
-
-    @Test
-    public void should_return_no_kebab(){
-        try {
-            assertNull(kebabController.getKebabById(700));
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-    }
-
-    @Test
-    public void should_kebab_by_ville(){
-        try {
-            List<Kebab> kebList = kebabController.getKebabByVille("Paris");
-            for(Kebab keb : kebList) {
-                assertThat(keb.getVille(), Matchers.is("Paris"));
-            }
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-
-    }
-    @Test
-    public void should_return_all_kebab(){
-        try {
-            long nb = kebabDao.count();
-            assertThat(kebabController.getAllKebab(), Matchers.hasSize((int)nb));
         } catch (Exception e) {
             e.printStackTrace();
         }
