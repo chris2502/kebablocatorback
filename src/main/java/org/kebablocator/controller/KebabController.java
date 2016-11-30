@@ -52,6 +52,11 @@ public class KebabController {
         }
     }
 
+    @RequestMapping(value = "/delete/{id}"
+            , method= RequestMethod.GET)
+    public void deleteKebabById(@PathVariable("id") int id) throws Exception {
+        kebabDao.delete(id);
+    }
 
     @Autowired
     private KebabDao kebabDao;
