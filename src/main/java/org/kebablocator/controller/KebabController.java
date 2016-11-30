@@ -31,6 +31,7 @@ public class KebabController {
 
     @RequestMapping(value = "/ville/{ville}"
             , method= RequestMethod.GET)
+    @CrossOrigin()
     public List<Kebab> getKebabByVille(@PathVariable("ville") String ville) throws Exception {
         return kebabDao.findByVille(ville);
     }
