@@ -19,12 +19,14 @@ public class KebabController {
 
     @RequestMapping(value = "/{id}"
             , method= RequestMethod.GET)
+    @CrossOrigin()
     public Kebab getKebabById(@PathVariable("id") int id) throws Exception {
         return kebabDao.findById(id);
     }
 
     @RequestMapping(value = "/"
             , method= RequestMethod.GET)
+    @CrossOrigin()
     public List<Kebab> getAllKebab() throws Exception {
         return kebabDao.findAll();
     }
@@ -40,6 +42,7 @@ public class KebabController {
     @RequestMapping(value = "/addKebab"
             , method= RequestMethod.POST)
     @ResponseStatus(value = HttpStatus.CREATED)
+    @CrossOrigin()
     public Kebab addKebabs(@RequestBody Kebab kebab) throws Exception {
           return kebabDao.save(kebab);
     }
@@ -47,6 +50,7 @@ public class KebabController {
     @RequestMapping(value = "/addKebabs"
             , method= RequestMethod.POST)
     @ResponseStatus(value = HttpStatus.CREATED)
+    @CrossOrigin()
     public void addKebabs(@RequestBody List<Kebab> kebabs) throws Exception {
         for(Kebab kebab : kebabs){
             kebabDao.save(kebab);
@@ -55,6 +59,7 @@ public class KebabController {
 
     @RequestMapping(value = "/delete/{id}"
             , method= RequestMethod.GET)
+    @CrossOrigin()
     public void deleteKebabById(@PathVariable("id") int id) throws Exception {
         kebabDao.delete(id);
     }
