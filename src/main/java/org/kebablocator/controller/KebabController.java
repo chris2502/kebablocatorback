@@ -17,19 +17,6 @@ import java.util.List;
 @RequestMapping("/kebab")
 public class KebabController {
 
-    /*@RequestMapping("/kebab")
-    @ResponseBody
-    public Kebab getById(int id) {
-        Kebab kebab = null;
-
-        try {
-            kebab = kebabDao.findById(id);
-        } catch (Exception e) {
-            //return "Kebab Not Found";
-        }
-        return kebab;
-    }*/
-
     @RequestMapping(value = "/{id}"
             , method= RequestMethod.GET)
     public Kebab getKebabById(@PathVariable("id") int id) throws Exception {
@@ -41,6 +28,13 @@ public class KebabController {
     public List<Kebab> getAllKebab() throws Exception {
         return kebabDao.findAll();
     }
+
+    @RequestMapping(value = "/ville/{ville}"
+            , method= RequestMethod.GET)
+    public List<Kebab> getKebabByVille(@PathVariable("ville") String ville) throws Exception {
+        return kebabDao.findByVille(ville);
+    }
+
 
     @RequestMapping(value = "/addKebab"
             , method= RequestMethod.POST)
@@ -58,6 +52,11 @@ public class KebabController {
         }
     }
 
+    @RequestMapping(value = "/delete/{id}"
+            , method= RequestMethod.GET)
+    public void deleteKebabById(@PathVariable("id") int id) throws Exception {
+        kebabDao.delete(id);
+    }
 
     @Autowired
     private KebabDao kebabDao;
