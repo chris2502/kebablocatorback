@@ -2,12 +2,15 @@ package org.kebablocator.model;
 
 
 
+import org.springframework.stereotype.Component;
+
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
 
 /**
  * Created by fchoudhry on 04/10/16.
  */
+@Component
 @Entity
 @Table(name = "kebabs")
 public class Kebab {

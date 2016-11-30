@@ -10,12 +10,12 @@ import java.util.List;
  * Created by fchoudhry on 04/10/16.
  */
 @Repository
-@Transactional
-public interface KebabDao extends CrudRepository<Kebab, Long> {
+public interface KebabDao extends CrudRepository<Kebab, Integer> {
 
-    public Kebab findById(int id);
 
-    public Kebab findByNom(String nom);
+    Kebab findById(int id);
+
+    Kebab findByNom(String nom);
 
     List<Kebab> findByIdIn(List<Integer> ids);
 
