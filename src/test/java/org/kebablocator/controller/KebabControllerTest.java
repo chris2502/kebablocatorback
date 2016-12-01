@@ -36,7 +36,7 @@ public class KebabControllerTest {
     @Autowired
     private KebabDao kebabDao;
     private static int id;
-
+    private static boolean check;
 
 
     @Before
@@ -123,7 +123,9 @@ public class KebabControllerTest {
     @After
     public void cleanUp(){
         try {
-            kebabController.deleteKebabById(id);
+            if(kebabController.getKebabById(id) != null ) {
+                kebabController.deleteKebabById(id);
+            }
         } catch (Exception e) {
             e.printStackTrace();
         }
