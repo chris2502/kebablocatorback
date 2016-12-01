@@ -15,7 +15,7 @@ import java.util.List;
  */
 @RestController
 @RequestMapping("/kebab")
-public class KebabController {
+public class KebabController extends ExceptionHandlingController {
 
     @RequestMapping(value = "/{id}"
             , method= RequestMethod.GET)
@@ -62,6 +62,20 @@ public class KebabController {
     @CrossOrigin()
     public void deleteKebabById(@PathVariable("id") int id) throws Exception {
         kebabDao.delete(id);
+    }
+
+    @RequestMapping(value = "/raiseerror"
+            , method= RequestMethod.GET)
+    @CrossOrigin()
+    public void raiseError500() throws Exception {
+        throw new Exception();
+    }
+
+    @RequestMapping(value = "/geterror"
+            , method= RequestMethod.GET)
+    @CrossOrigin()
+    public int getErrorStatus() throws Exception {
+        return getNbErreurs();
     }
 
     @Autowired
