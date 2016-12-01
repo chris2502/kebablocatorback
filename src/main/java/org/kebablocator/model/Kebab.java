@@ -15,7 +15,7 @@ import javax.validation.constraints.NotNull;
 @Table(name = "kebabs")
 public class Kebab {
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
 
     @NotNull
@@ -52,12 +52,8 @@ public class Kebab {
         this.ville = ville;
     }
 
-    public long getId() {
+    public int getId() {
         return id;
-    }
-
-    public void setId(int id) {
-        this.id = id;
     }
 
     public Double getLatitude() {

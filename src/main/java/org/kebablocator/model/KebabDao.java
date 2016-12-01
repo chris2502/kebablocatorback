@@ -19,7 +19,7 @@ public interface KebabDao extends CrudRepository<Kebab, Integer> {
 
     List<Kebab> findByVille(String ville);
 
-    List<Kebab> findByIdIn(List<Integer> ids);
+    List<Kebab> findByIdIn(List<Long> ids);
 
     List<Kebab> findAll();
 
