@@ -23,5 +23,4 @@ public interface KebabDao extends CrudRepository<Kebab, Integer> {
 
     List<Kebab> findAll();
 
-    void deleteById(int id);
 }

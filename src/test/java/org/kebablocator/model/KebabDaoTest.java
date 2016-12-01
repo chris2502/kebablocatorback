@@ -1,5 +1,7 @@
 package org.kebablocator.model;
 
+import org.junit.After;
+import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.kebablocator.KebabLocatorBackApplication;
@@ -13,9 +15,7 @@ import java.util.Iterator;
 import java.util.LinkedList;
 import java.util.List;
 
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertNotEquals;
-import static org.junit.Assert.assertTrue;
+import static org.junit.Assert.*;
 
 /**
  * Created by ebongue on 11/11/16.
@@ -28,17 +28,31 @@ public class KebabDaoTest {
 
     @Autowired
     private KebabDao kebabDao;
+    @Autowired
+    private Kebab kebab;
+    private static int id;
+
+
+    @Before
+    public void setInit(){
+        kebab = new Kebab(48.862364, 2.349856, "Nabab Kebab", "72 rue rambuteau", "75001", "Paris");
+        try {
+            kebabDao.save(kebab);
+            id= kebab.getId();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
 
     @Test()
     public void should_return_no_kebab(){
-        int id = 1;
+        int id = -1;
 
-        assertTrue(kebabDao.findById(id) instanceof Kebab);
+        assertNull(kebabDao.findById(id));
     }
 
     @Test
     public void should_valid_if_this_kebab_in_database(){
-         int id = 1;
         assertTrue(kebabDao.exists(id));
     }
 
@@ -53,5 +67,14 @@ public class KebabDaoTest {
 
     }
 
-
+    @After
+    public void cleanUp(){
+        try {
+            if(kebabDao.findById(id) != null ) {
+                kebabDao.delete(id);
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
 }

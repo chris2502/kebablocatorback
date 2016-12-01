@@ -36,7 +36,6 @@ public class KebabControllerTest {
     @Autowired
     private KebabDao kebabDao;
     private static int id;
-    private static boolean check;
 
 
     @Before
