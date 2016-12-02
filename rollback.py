@@ -51,7 +51,7 @@ for i in range(1, len(PROPERTIES_LEVELS)):
 
 def rollback():
 	print("Allez je me casse. Salut !")
-	os.system("heroku rollback")
+	os.system("heroku rollback --app kebablocatorback")
 	exit()
 
 # 3 niveaux
