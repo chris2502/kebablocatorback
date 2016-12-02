@@ -1,0 +1,1 @@
+web: mvn spring-boot:run & python3 rollback.py
