@@ -43,7 +43,7 @@ PROPERTIES_LEVELS = [
 
 # Juste pour être sûr que le serveur ait eu le temps de démarrer
 # Au-delà, il y a un problème
-time.sleep(120) # secondes
+time.sleep(60) # secondes
 
 # On arrange les temps pour exclure les durées des niveaux précédents
 for i in range(1, len(PROPERTIES_LEVELS)):
