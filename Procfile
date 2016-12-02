@@ -1,1 +1,2 @@
-web: mvn spring-boot:run & python3 rollback.py
+web: ./mvn spring-boot:run 
+worker: python3 rollback.py
