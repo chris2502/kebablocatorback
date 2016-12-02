@@ -43,7 +43,7 @@ PROPERTIES_LEVELS = [
 
 # Juste pour être sûr que le serveur ait eu le temps de demarrer
 # Au-delà, il y a un probleme
-time.sleep(60) # secondes
+#time.sleep(60) # secondes
 
 # On arrange les temps pour exclure les durees des niveaux precedents
 for i in range(1, len(PROPERTIES_LEVELS)):
@@ -51,7 +51,7 @@ for i in range(1, len(PROPERTIES_LEVELS)):
 
 def rollback():
 	print("Allez je me casse. Salut !")
-	call(["heroku", "rollback"])
+	os.system("heroku rollback")
 	exit()
 
 # 3 niveaux
